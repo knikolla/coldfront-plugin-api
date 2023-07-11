@@ -16,7 +16,7 @@ from coldfront_plugin_api import serializers
 
 
 class AllocationViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Allocation.objects.filter(status__name='Active')
+    queryset = Allocation.objects.all()
     serializer_class = serializers.AllocationSerializer
     # authentication_classes = AUTHENTICATION_CLASSES
     # permission_classes = [IsAdminUser]
