@@ -9,17 +9,17 @@ from coldfront.core.allocation.models import Allocation
 
 from coldfront_plugin_api import serializers
 
-if os.getenv('PLUGIN_AUTH_OIDC') == 'True':
-    AUTHENTICATION_CLASSES = [OIDCAuthentication, SessionAuthentication]
-else:
-    AUTHENTICATION_CLASSES = [SessionAuthentication, BasicAuthentication]
+# if os.getenv('PLUGIN_AUTH_OIDC') == 'True':
+#     AUTHENTICATION_CLASSES = [OIDCAuthentication, SessionAuthentication]
+# else:
+#     AUTHENTICATION_CLASSES = [SessionAuthentication, BasicAuthentication]
 
 
 class AllocationViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Allocation.objects.filter(status__name='Active')
     serializer_class = serializers.AllocationSerializer
-    authentication_classes = AUTHENTICATION_CLASSES
-    permission_classes = [IsAdminUser]
+    # authentication_classes = AUTHENTICATION_CLASSES
+    # permission_classes = [IsAdminUser]
 
 
 router = routers.SimpleRouter()
